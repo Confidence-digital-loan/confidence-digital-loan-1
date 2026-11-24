@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123b70">
+<title>Confidence Digital Loan</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f2f6fb;color:#17243a}
+header{background:linear-gradient(135deg,#123b70,#1976d2);color:white;padding:23px 18px 27px;border-radius:0 0 22px 22px}
+header h1{font-size:22px;margin:0 0 6px}header p{margin:0;opacity:.9;font-size:13px}
+main{max-width:850px;margin:auto;padding:14px}.tabs{display:flex;gap:7px;overflow:auto;padding-bottom:5px}
+.tabs button,.btn{border:0;border-radius:9px;padding:10px 12px;background:#e2ebf7;color:#123b70;font-weight:700;white-space:nowrap;cursor:pointer}
+.tabs button.active,.btn.primary{background:#1769bd;color:#fff}
+.card{background:white;border-radius:15px;padding:16px;margin:11px 0;box-shadow:0 3px 14px #16375c12}
+h2{font-size:17px;margin:0 0 12px}.muted{color:#65748b;font-size:12px;line-height:1.55}
+label{display:block;font-size:13px;font-weight:700;margin:11px 0 5px}
+input,select,textarea{width:100%;padding:11px;border:1px solid #cbd6e4;border-radius:8px;font:inherit;background:white}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.stat{background:#f4f8fd;border-radius:11px;padding:12px}.stat b{display:block;font-size:19px;color:#1769bd;margin-top:4px}
+.btn{margin:7px 5px 0 0}.btn.small{font-size:12px;padding:8px}.btn.danger{background:#fdeaea;color:#a12828}
+.notice{background:#fff7e6;border:1px solid #f2d69a;padding:11px;border-radius:9px;font-size:12px;line-height:1.5}
+.hidden{display:none}.status{padding:4px 8px;border-radius:20px;background:#e8f4ec;color:#237342;font-size:11px}
+.item{border:1px solid #e2e9f2;border-radius:10px;padding:12px;margin:9px 0}.item h3{font-size:14px;margin:0 0 6px}
+.result{font-size:22px;font-weight:800;color:#1769bd}footer{text-align:center;color:#718096;font-size:11px;padding:18px}
+</style></head>
+<body>
+<header><h1>Confidence Digital Loan</h1><p>ব্যক্তিগত ঋণ ব্যবস্থাপনা · প্রাথমিক ডেমো</p></header>
+<main>
+<nav class="tabs">
+<button class="active" data-tab="home">হোম</button>
+<button data-tab="apply">আবেদন</button>
+<button data-tab="status">আবেদনের অবস্থা</button>
+<button data-tab="admin">অ্যাডমিন ড্যাশবোর্ড</button>
+</nav>
+
+<section id="home" class="page">
+<div class="card"><h2>স্বাগতম</h2><p>গ্রাহক ঋণের আবেদন জমা দিতে পারবেন। অ্যাডমিন আবেদন পর্যালোচনা করে সিদ্ধান্ত ও হিসাব সংরক্ষণ করতে পারবেন।</p>
+<div class="notice">এটি পরীক্ষামূলক ডেমো। বাস্তব ঋণ বিতরণ, গ্রাহকের আসল ব্যক্তিগত তথ্য বা অর্থ লেনদেনের জন্য প্রস্তুত নয়। বাংলাদেশে প্রযোজ্য লাইসেন্স, সুদের সীমা ও অন্যান্য আইনগত শর্ত যাচাই না করে ঋণ কার্যক্রম শুরু করবেন না।</div></div>
+<div class="card"><h2>ঋণ কিস্তির নমুনা হিসাব</h2>
+<label>ঋণের পরিমাণ (৳)</label><input id="calcAmount" type="number" min="1000" max="5000" value="5000">
+<label>মেয়াদ (মাস)</label><select id="calcMonths"><option>3</option><option>6</option><option selected>12</option></select>
+<p class="muted">এই ডেমোতে কোনো সুদের হার নির্ধারণ করা হয়নি। চূড়ান্ত হার ও সব চার্জ আইনগত যাচাই এবং লিখিত চুক্তির পরই যোগ করা যাবে।</p>
+<div class="result" id="calcResult">৳416.67</div><div class="muted">সুদ ছাড়া মূল টাকা সমান ভাগে ভাগ করলে নমুনা মাসিক মূল কিস্তি।</div></div>
+<div class="card"><h2>ফি ও শর্ত</h2><p class="muted">এই ডেমোতে কোনো অগ্রিম প্রসেসিং ফি বা পেমেন্ট নম্বর নেই। প্রকৃত চুক্তিতে সুদ, ফি, কিস্তির তারিখ, মোট পরিশোধ ও বিলম্বের শর্ত স্পষ্টভাবে জানাতে হবে।</p></div>
+</section>
+
+<section id="apply" class="page hidden"><div class="card"><h2>ঋণের আবেদন</h2>
+<form id="loanForm">
+<label>পূর্ণ নাম</label><input name="name" required maxlength="80">
+<label>মোবাইল নম্বর</label><input name="phone" required inputmode="tel" pattern="[0-9+ -]{10,16}">
+<div class="row"><div><label>ঋণের পরিমাণ (৳)</label><input name="amount" required type="number" min="1000" max="5000"></div>
+<div><label>মেয়াদ (মাস)</label><select name="term"><option>3</option><option>6</option><option selected>12</option></select></div></div>
+<label>ঋণের উদ্দেশ্য</label><textarea name="purpose" rows="3" required maxlength="300"></textarea>
+<div class="notice">সর্বোচ্চ আবেদন ৫,০০০ টাকা। আবেদন জমা দিলেই ঋণ অনুমোদিত হয় না। ব্যক্তিগত সংবেদনশীল তথ্য এই ডেমোতে লিখবেন না।</div>
+<button class="btn primary" type="submit">ডেমো আবেদন জমা দিন</button>
+</form></div></section>
+
+<section id="status" class="page hidden"><div class="card"><h2>আবেদনের অবস্থা</h2><div id="statusBox" class="muted">কোনো আবেদন জমা হয়নি।</div></div></section>
+
+<section id="admin" class="page hidden">
+<div class="card"><h2>অ্যাডমিন ড্যাশবোর্ড</h2>
+<div class="notice">শুধু ডেমো ব্যবহারের জন্য। এটি পাসওয়ার্ড-সুরক্ষিত নয় এবং তথ্য এই ব্রাউজারের localStorage-এ থাকে। বাস্তব ব্যবহারে নিরাপদ সার্ভার, অ্যাডমিন লগইন, ব্যাকআপ ও অনুমতি-নিয়ন্ত্রণ আবশ্যক।</div>
+<div class="stats">
+<div class="stat"><span class="muted">প্রাথমিক মূলধন</span><b id="capital">৳৩০,০০০</b></div>
+<div class="stat"><span class="muted">বিতরণ করা ঋণ</span><b id="disbursed">৳০</b></div>
+<div class="stat"><span class="muted">আদায় হয়েছে</span><b id="repaid">৳০</b></div>
+<div class="stat"><span class="muted">বাকি মূল টাকা*</span><b id="outstanding">৳০</b></div>
+</div><p class="muted">*এই ডেমোতে বাকি হিসাব = বিতরণ করা মূল টাকা − রেকর্ড করা আদায়; সুদ বা চার্জ অন্তর্ভুক্ত নয়।</p>
+</div>
+<div class="card"><h2>আবেদনসমূহ</h2><div id="adminList" class="muted">কোনো আবেদন নেই।</div></div>
+<div class="card"><h2>কিস্তি / টাকা আদায়ের রেকর্ড</h2>
+<label>ঋণ/আবেদন নম্বর</label><input id="repayId" placeholder="যেমন CDL-1234567">
+<label>আদায়ের পরিমাণ (৳)</label><input id="repayAmount" type="number" min="1" placeholder="যেমন 500">
+<button class="btn primary" id="recordRepay">ডেমো আদায় রেকর্ড করুন</button>
+<div id="repayList" class="muted"></div>
+</div>
+<div class="card"><h2>ডেমো ডেটা নিয়ন্ত্রণ</h2><button class="btn danger" id="clearData">সব ডেমো তথ্য মুছুন</button></div>
+</section>
+</main><footer>Confidence Digital Loan · Demo only · প্রকৃত ঋণ বা পেমেন্ট সেবা নয়</footer>
+<script>
+const $=id=>document.getElementById(id),KEY='cdl_demo_v2';
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{apps:[],repayments:[]}}catch(e){return {apps:[],repayments:[]}}}
+function save(d){localStorage.setItem(KEY,JSON.stringify(d))}
+function money(n){return '৳'+Number(n||0).toLocaleString('en-BD',{maximumFractionDigits:2})}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));$(b.dataset.tab).classList.remove('hidden');if(b.dataset.tab==='admin')renderAdmin();if(b.dataset.tab==='status')renderStatus()});
+function calc(){let a=Math.max(0,Math.min(5000,+$('calcAmount').value||0)),m=Math.max(1,+$('calcMonths').value||1);$('calcResult').textContent=money(a/m)}
+$('calcAmount').oninput=calc;$('calcMonths').onchange=calc;calc();
+$('loanForm').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target),d=load(),id='CDL-'+Date.now().toString().slice(-7);d.apps.push({id,name:f.get('name'),phone:f.get('phone'),amount:+f.get('amount'),term:+f.get('term'),purpose:f.get('purpose'),status:'পর্যালোচনার অপেক্ষায়',disbursed:0,created:new Date().toLocaleDateString('bn-BD')});save(d);e.target.reset();alert('ডেমো আবেদন জমা হয়েছে।');document.querySelector('[data-tab="status"]').click()};
+function renderStatus(){let a=load().apps,last=a[a.length-1];$('statusBox').innerHTML=last?`আবেদন নম্বর: <b>${esc(last.id)}</b><br>নাম: ${esc(last.name)}<br>আবেদনের পরিমাণ: ${money(last.amount)}<br>অবস্থা: <span class="status">${esc(last.status)}</span>`:'কোনো আবেদন জমা হয়নি।'}
+function renderAdmin(){let d=load(),dis=d.apps.reduce((s,a)=>s+(a.disbursed||0),0),rep=d.repayments.reduce((s,r)=>s+r.amount,0);$('disbursed').textContent=money(dis);$('repaid').textContent=money(rep);$('outstanding').textContent=money(Math.max(0,dis-rep));$('capital').textContent=money(30000-dis);
+$('adminList').innerHTML=d.apps.length?d.apps.map(a=>`<div class="item"><h3>${esc(a.name)} · ${money(a.amount)}</h3><div class="muted">আইডি: ${esc(a.id)} · ${esc(a.phone)} · ${a.term} মাস<br>উদ্দেশ্য: ${esc(a.purpose)}<br>অবস্থা: <span class="status">${esc(a.status)}</span><br>বিতরণ রেকর্ড: ${money(a.disbursed||0)}</div>${a.status==='পর্যালোচনার অপেক্ষায়'?`<button class="btn small primary" onclick="approve('${a.id}')">ডেমো অনুমোদন</button><button class="btn small" onclick="reject('${a.id}')">প্রত্যাখ্যান</button>`:''}${a.status==='অনুমোদিত'&&!(a.disbursed>0)?`<button class="btn small primary" onclick="disburse('${a.id}')">ডেমো বিতরণ রেকর্ড</button>`:''}</div>`).join(''):'কোনো আবেদন নেই।';
+$('repayList').innerHTML=d.repayments.length?'<p><b>আদায়ের রেকর্ড</b></p>'+d.repayments.map(r=>`<div class="item">${esc(r.id)} · ${money(r.amount)} · ${esc(r.date)}</div>`).join(''):'এখনো কোনো আদায় রেকর্ড নেই।'}
+window.approve=id=>{let d=load(),a=d.apps.find(x=>x.id===id);if(a){a.status='অনুমোদিত (ডেমো)';save(d);renderAdmin()}};
+window.reject=id=>{let d=load(),a=d.apps.find(x=>x.id===id);if(a){a.status='প্রত্যাখ্যাত (ডেমো)';save(d);renderAdmin()}};
+window.disburse=id=>{let d=load(),a=d.apps.find(x=>x.id===id),used=d.apps.reduce((s,x)=>s+(x.disbursed||0),0);if(!a)return;if(a.amount>5000||used+a.amount>30000){alert('ডেমো সীমা অতিক্রম করবে।');return}if(confirm('শুধু ডেমো হিসাবের জন্য '+money(a.amount)+' বিতরণ রেকর্ড করবেন?')){a.disbursed=a.amount;a.status='বিতরণ রেকর্ড হয়েছে (ডেমো)';save(d);renderAdmin()}};
+$('recordRepay').onclick=()=>{let id=$('repayId').value.trim(),amount=+$('repayAmount').value,d=load(),a=d.apps.find(x=>x.id===id),paid=d.repayments.filter(x=>x.id===id).reduce((s,x)=>s+x.amount,0);if(!a||!a.disbursed){alert('বিতরণ রেকর্ড করা ঋণ আইডি পাওয়া যায়নি।');return}if(!(amount>0)||paid+amount>a.disbursed){alert('পরিমাণ যাচাই করুন। এই ডেমোতে মূল বিতরণকৃত টাকার বেশি আদায় রেকর্ড করা যাবে না।');return}d.repayments.push({id,amount,date:new Date().toLocaleDateString('bn-BD')});save(d);$('repayId').value='';$('repayAmount').value='';renderAdmin();alert('ডেমো আদায় রেকর্ড হয়েছে।')};
+$('clearData').onclick=()=>{if(confirm('সব ডেমো আবেদন ও হিসাব মুছে ফেলবেন?')){localStorage.removeItem(KEY);renderAdmin();renderStatus()}};
+renderStatus();
+</script></body></html>

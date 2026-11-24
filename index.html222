@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confidence Digital Loan</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #eef3f8;
+  margin: 0;
+}
+header {
+  background: #0756a5;
+  color: white;
+  text-align: center;
+  padding: 25px 10px;
+}
+.card {
+  background: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 14px;
+}
+input, select {
+  width: 100%;
+  padding: 13px;
+  margin: 9px 0 16px;
+  box-sizing: border-box;
+  border: 1px solid #bbb;
+  border-radius: 7px;
+  font-size: 16px;
+}
+button {
+  width: 100%;
+  padding: 14px;
+  background: #0756a5;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  font-size: 17px;
+}
+label { font-weight: bold; }
+</style>
+</head>
+<body>
+
+<header>
+<h2>Confidence Digital Loan</h2>
+<p>ডিজিটাল ঋণ আবেদন কেন্দ্র</p>
+</header>
+
+<div class="card">
+<h3>ঋণের আবেদন ফরম</h3>
+
+<form onsubmit="event.preventDefault(); alert('এটি পরীক্ষামূলক ফরম। এখনো আবেদন জমা হয়নি।');">
+
+<label>আপনার নাম</label>
+<input type="text" placeholder="সম্পূর্ণ নাম" required>
+
+<label>মোবাইল নম্বর</label>
+<input type="tel" placeholder="01XXXXXXXXX"
+pattern="01[0-9]{9}" required>
+
+<label>ঋণের পরিমাণ</label>
+<select required>
+<option value="">পরিমাণ নির্বাচন করুন</option>
+<option>৫,০০০ টাকা</option>
+<option>১০,০০০ টাকা</option>
+<option>১৫,০০০ টাকা</option>
+<option>২০,০০০ টাকা</option>
+</select>
+
+<label>ঋণের মেয়াদ</label>
+<select required>
+<option value="">মেয়াদ নির্বাচন করুন</option>
+<option>১ মাস</option>
+<option>৩ মাস</option>
+<option>৬ মাস</option>
+<option>১২ মাস</option>
+</select>
+
+<button type="submit">আবেদন করুন</button>
+</form>
+</div>
+
+</body>
+</html>
